@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- namespace的值就是dao接口的完整路径，就这个demo而言namespace 就是userDao.java的完整路径-->
+<mapper namespace="com.booth.dao.WechatUserDao">
+	<sql id="TABLE_NAME">`wechat_user`</sql>
+
+	<sql id="VALUE_LIST">
+		openId,
+		nickName,
+		avatarUrl,
+		country,
+		province,
+		city,
+		code,
+		`language`,
+		`date`
+	</sql>
+
+	<sql id="INSERT_VALUE">
+		#{openId},
+		#{nickName},
+		#{avatarUrl},
+		#{country},
+		#{province},
+		#{city},
+		#{code},
+		#{language},
+		#{date}
+	</sql>
+	<insert id="insertWechatUser">
+		INSERT INTO <include refid="TABLE_NAME"/>
+			(<include refid="VALUE_LIST"/>)
+		VALUES
+			(<include refid="INSERT_VALUE"/>)
+	</insert>
+
+	<update id="updateWechatUser" parameterType="com.booth.pojo.WechatUser" useGeneratedKeys="true">
+    	UPDATE <include refid="TABLE_NAME"/>
+    	SET avatarUrl = #{avatarUrl},
+    		`date` = #{date},
+    		nickName = #{nickName}
+    	WHERE
+			openId = #{openId}
+    </update>
+
+	<select id="selcectWechatUserByOpenId" resultType="com.booth.pojo.WechatUser">
+		SELECT
+			<include refid="VALUE_LIST"/>
+		FROM
+			<include refid="TABLE_NAME"/>
+		WHERE
+			openId = #{openId}
+	</select>
+
+
+</mapper>

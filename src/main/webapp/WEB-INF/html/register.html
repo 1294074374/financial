@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>账户注册</title>
+	 <link rel="stylesheet" href="../resources/css/register.css">
+</head>
+<body>
+	<div class="xiao-container">
+		<div class="xiao-register-box">
+			<div class="xiao-title-box">
+				<span>用户注册</span>
+			</div>
+			<form action="#" method="post">
+				<div class="xiao-username-box">
+					<span class="xiao-require">*</span>
+					<label for="username">用户名</label>
+					<div class="xiao-username-input">
+						<input type="text" id="username" name="username" placeholder="请输入用户名 长度:6-12个字符" />
+					</div>
+				</div>
+ 
+				<div class="xiao-userPassword-box">
+					<span class="xiao-require">*</span>
+					<label for="userPassword">密码</label>
+					<div class="xiao-userPassword-input">
+						<input type="password" id="userPassword" name="userPassword" placeholder="请输入密码 长度:6-12个字符" />
+					</div>
+				</div>
+ 
+				<div class="xiao-userRePassword-box">
+				<span class="xiao-require">*</span>
+						<label for="userRePassword">确认密码</label>
+					<div class="xiao-userRePassword-input">
+						<input type="password" id="userRePassword" name="userRePassword" placeholder="请重复输入密码" />
+					</div>
+				</div>
+ 
+				<div class="xiao-userPhone-box">
+					<span class="xiao-require">*</span>
+					<label for="userPhone">手机号码</label>
+					<div class="xiao-userPhone-input">
+						<input type="text" id="userPhone" name="userPhone" placeholder="请输入您的手机号码，11位有效数字" />
+					</div>
+				</div>
+				
+				<div class="xiao-userEmail-box">
+					<span class="xiao-require">*</span>
+					<label for="userEmail">电子邮箱</label>
+					<div class="xiao-userEmail-input">
+						<input type="text" id="userEmail" name="userEmail" placeholder="请输入您的邮箱地址，如：123@qq.com" />
+					</div>
+				</div>
+				
+				<div class="xiao-department-box">
+					<span class="xiao-require">*</span>
+					<label for="department">所属部门</label>
+					<div class="xiao-department-input">
+						<input type="text" id="department" name="userEmail" placeholder="请输入您所属的部门" />
+					</div>
+				</div>
+				
+				<div class="xiao-userGender-box">
+					<span class="xiao-require">*</span>
+					<label for="userGender">注册角色</label>
+					<div class="xiao-userGender-input">
+						<input name="role" type="radio" id="role_1" value="1" />用户 &emsp;&emsp;&emsp;
+						<input name="role" type="radio" id="role_2" value="2" />教师 &emsp;&emsp;&emsp;
+						<input name="role" type="radio" id="role_3" value="3" />管理员
+					</div>
+				</div>
+				
+				<div class="xiao-submit-box">
+					<input id = "xiao-submit-button" type="submit" value="注册">
+				</div>
+				
+				<div class="xiao-goLogin-box">
+					<a href="#" style="text-decoration: none;">已有账号？去登录</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+	<script type="text/javascript" src="../resources/js/register.js"></script>
+</body>
+</html>

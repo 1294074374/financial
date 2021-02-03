@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- namespace的值就是dao接口的完整路径，就这个demo而言namespace 就是userDao.java的完整路径-->
+<mapper namespace="com.booth.dao.BillDao">
+    <sql id="TABLE_NAME">`bill`</sql>
+
+    <sql id="VALUE_LIST">
+      trading_date,
+      spend_type,
+      transaction_type,
+      counterparty,
+      goods,
+      balance_of_payments,
+      amt,
+      pay_type,
+      status,
+      order_id,
+      merchant_id,
+      remark,
+      open_id
+    </sql>
+
+    <sql id="INSERT_VALUE">
+        #{tradingDate},
+        #{spendType},
+        #{transactionType},
+        #{counterparty},
+        #{goods},
+        #{balanceOfPayments},
+        #{amt},
+        #{payType},
+        #{status},
+        #{orderId},
+        #{merchantId},
+        #{remark},
+        #{openId}
+    </sql>
+
+    <sql id="FOREACH_INSERT_VALUE">
+        #{roster.tradingDate},
+        #{roster.spendType},
+        #{roster.transactionType},
+        #{roster.counterparty},
+        #{roster.goods},
+        #{roster.balanceOfPayments},
+        #{roster.amt},
+        #{roster.payType},
+        #{roster.status},
+        #{roster.orderId},
+        #{roster.merchantId},
+        #{roster.remark},
+        #{roster.openId}
+    </sql>
+
+    <insert id="insertBillList">
+        INSERT INTO <include refid="TABLE_NAME"/>
+        (
+            <include refid="VALUE_LIST"/>
+        )
+        VALUES
+        <foreach collection="list" item="roster" separator=",">
+        (
+            <include refid="FOREACH_INSERT_VALUE"/>
+        )
+        </foreach>
+    </insert>
+
+    <select id="selectTrandDateList" parameterType="com.booth.pojo.BillVO" resultType="java.lang.String">
+        SELECT
+            CAST(trading_date AS DATE) as DateField
+        FROM
+            bill
+        WHERE open_id = #{openId}
+        GROUP BY CAST(trading_date AS DATE)
+    </select>
+
+    <select id="selectBillCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM bill WHERE open_id = #{openId}
+    </select>
+
+    <select id="selectBalanceBillCount" resultType="java.lang.String">
+        SELECT
+            SUM(amt)
+        FROM
+            bill
+        WHERE
+            trading_date <![CDATA[>=]]> DATE_FORMAT(#{startDate},'%Y-%m-%d')
+            AND
+            trading_date <![CDATA[<=]]> DATE_FORMAT(#{endDate},'%Y-%m-%d')
+            AND balance_of_payments = '收入'
+            AND open_id = #{openId}
+    </select>
+
+    <select id="selectPaymentsBillCount" resultType="java.lang.String">
+        SELECT
+            SUM(amt)
+        FROM
+            bill
+        WHERE
+            trading_date <![CDATA[>=]]> DATE_FORMAT(#{startDate},'%Y-%m-%d')
+            AND
+            trading_date <![CDATA[<=]]> DATE_FORMAT(#{endDate},'%Y-%m-%d')
+            AND balance_of_payments = '支出'
+            AND open_id = #{openId}
+    </select>
+    <select id="selectDateList" resultType="java.lang.String">
+        SELECT
+            trading_date
+        FROM
+            bill
+        WHERE open_id = #{openId}
+        ORDER BY trading_date
+    </select>
+
+</mapper>

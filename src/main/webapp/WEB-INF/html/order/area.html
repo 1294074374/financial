@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>控制台-用户端</title>
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/order/identify.css" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/order/layout.css" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/order/account.css" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/order/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/order/control_index.css" />
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/queryBoothApply.css" />
+	<link rel="stylesheet" type="text/css"
+	href="../resources/css/area.css" />
+<script type="text/javascript"
+	src="../resources/js/order/jquery-1.7.2.min.js"></script>
+<script type="text/javascript"
+	src="../resources/js/order/layer/layer.js"></script>
+<script type="text/javascript"
+	src="../resources/js/order/haidao.offcial.general.js"></script>
+<script type="text/javascript" src="../resources/js/order/select.js"></script>
+<script type="text/javascript"
+	src="../resources/js/order/haidao.validate.js"></script>
+<script type="text/javascript" src="../resources/js/area.js"></script>
+</head>
+
+<body>
+	<div class="view-topbar">
+		<div class="topbar-console">
+			<div class="tobar-head fl">
+				<a href="#" class="topbar-logo fl"> <span><img
+						src="../resources/Images/logo.png" width="20" height="20" /></span>
+				</a> <a href="index.html"
+					class="topbar-home-link topbar-btn text-center fl"><span>高校摊位管理系统</span></a>
+			</div>
+		</div>
+		<div class="topbar-info">
+			<ul class="fr">
+				<li class="fl dropdown topbar-notice topbar-btn"><a href="#"
+					class="dropdown-toggle"> <span class="icon-notice"></span> <span
+						class="topbar-num have">0</span> <!--have表示有消息，没有消息去掉have-->
+				</a></li>
+				<!-- 					<li class="fl topbar-info-item strong">
+					<div class="dropdown">
+						<a href="#" class="dropdown-toggle topbar-btn">
+						<span class="fl">工单服务</span>
+						<span class="icon-arrow-down"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">我的工单</a></li>
+							<li><a href="#">提交工单</a></li>
+						</ul>
+					</div>
+					</li>
+					 -->
+				<li class="fl topbar-info-item">
+					<div class="dropdown">
+						<a href="#" class="topbar-btn"> <span class="fl text-normal">帮助与文档</span>
+							<span class="icon-arrow-down"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">模板开发手册</a></li>
+							<li><a href="#">某某数据字典</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="fl topbar-info-item">
+					<div class="dropdown">
+						<a href="#" class="topbar-btn"> <span class="fl text-normal"
+							id="userName"></span> <span class="icon-arrow-down"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/booth/util/layout">退出</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="view-body">
+		<div class="view-sidebar">
+			<div class="sidebar-content">
+				<!-- <div class="sidebar-nav">
+					<div class="sidebar-title">
+						<a href="#"> <span class="icon"><b
+								class="fl icon-arrow-down"></b></span> <span class="text-normal">产品与服务</span>
+						</a>
+					</div>
+					<ul class="sidebar-trans">
+						<li><a href="webSet.html"> <b class="sidebar-icon"><img
+									src="../resources/Images/icon_author.png" width="16" height="16" /></b> <span
+								class="text-normal">站点管理</span>
+						</a></li>
+						<li><a href="smsInfo.html"> <b class="sidebar-icon"><img
+									src="../resources/Images/icon_message.png" width="16" height="16" /></b> <span
+								class="text-normal">短信</span>
+						</a></li>
+						<li>
+								<a href="#">
+									<b class="sidebar-icon"><img src="Images/icon_market.png" width="16" height="16" /></b>
+									<span class="text-normal">云市场</span>
+								</a>
+							</li>
+					</ul>
+				</div> -->
+				<div class="sidebar-nav">
+					<div class="sidebar-title">
+						<a href="#"> <span class="icon"><b
+								class="fl icon-arrow-down"></b></span> <span class="text-normal">用户中心</span>
+						</a>
+					</div>
+					<ul class="sidebar-trans">
+						<li><a href="/booth/order/toUserInfoUser"> <b
+								class="sidebar-icon"><img
+									src="../resources/Images/icon_cost.png" width="16" height="16" /></b>
+								<span class="text-normal">账号管理</span>
+						</a></li>
+						<li><a href="/booth/order/toBoothApply"> <b
+								class="sidebar-icon"><img
+									src="../resources/Images/icon_author.png" width="16"
+									height="16" /></b> <span class="text-normal">摊位申请</span>
+						</a></li>
+						<li><a href="/booth/order/toMessage"> <b
+								class="sidebar-icon"><img
+									src="../resources/Images/icon_news.png" width="16" height="16" /></b>
+								<span class="text-normal">摊位管理</span>
+						</a></li>
+						<li><a href="/booth/order/toArea"> <b class="sidebar-icon"><img
+									src="../resources/Images/icon_gold.png" width="16" height="16" /></b>
+								<span class="text-normal">区域管理</span>
+						</a></li>
+						<!-- <li><a href="order.html"> <b class="sidebar-icon"><img
+									src="../resources/Images/icon_order.png" width="16" height="16" /></b>
+								<span class="text-normal">订单管理</span>
+						</a></li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="view-product">
+			<div class="add-area" id="add-area">
+				<p class="booth-title">
+					<span>创建摊位区域</span>
+				</p>
+				<span class="add-font">区域名称&nbsp;:&nbsp;</span>
+					<input type="text" id="booth_name"><br> 
+				<div id="add-state">
+					<span class="add-font">摊位状态&nbsp;:&nbsp;</span> 
+					<input type="radio" name="state" value="可用" class="add-state">可用&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+					<input type="radio" name="state" value="禁用" class="add-state">禁用<br>
+				</div>
+				<button onclick="hiddenDIV()">创建</button>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+				<button onclick="hiddenaddDIV()">取消</button>
+			</div>
+			<div class="add-booth" id="update-area">
+			
+			</div>
+			
+			<div class="info-center">
+				<div class="manage-head">
+					<h6 class=" padding-left manage-head-con ">区域管理</h6>
+				</div>
+				<div class="info-center-con">
+					<!-- <div class=" info-center-title h5 margin-big-top clearfix">
+						<span class="fl padding-large-right manage-title"><a
+							href="#">全部消息</a></span> <span class="fl padding-large-right"><a
+							href="#">已读消息(0)</a></span> <span class="fl"><a href="#">未读消息(0)</a></span>
+					</div> -->
+					<br>
+					<div>
+						<span class="fl padding-large-right manage-title">
+							<button onclick="showDIV()">添加区域</button>
+						</span>
+					</div>
+
+
+				</div>
+				<br>
+				<div class="offcial-table input-table table-margin clearfix">
+					<div class="tr-th clearfix">
+						<div class="th w5 text-center"></div>
+						<div class="padding-left-15 th w55">区域地点</div>
+						<div class="th w25">区域状态</div>
+						<div class="th w15">操作</div>
+					</div>
+					<div id="areaList" style="font-size: 15px; font-weight: bold">
+					</div>
+
+					<!-- <div class="non-info">
+						<span>没有任何消息</span>
+					</div> -->
+				</div>
+
+			</div>
+			<div class="show-page padding-top-0 layout hidden">
+				<ul class="tr-float">
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(".sidebar-title").live('click', function() {
+			if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+				$(this).next().slideDown(200);
+				$(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+			} else {
+				$(this).next().slideUp(200);
+				$(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+			}
+		});
+	</script>
+</body>
+
+</html>

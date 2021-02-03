@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- namespace的值就是dao接口的完整路径，就这个demo而言namespace 就是userDao.java的完整路径-->
+<mapper namespace="com.booth.dao.BudgetDao">
+    <sql id="TABLE_NAME">`budget`</sql>
+    <select id="selectUserMonthBudget" resultType="com.booth.pojo.BudgetVO">
+        SELECT
+            budget
+        FROM
+            <include refid="TABLE_NAME"/>
+        WHERE
+            open_id = #{openId}
+            AND `month` = #{selectDate}
+    </select>
+
+
+</mapper>

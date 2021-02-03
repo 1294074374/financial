@@ -1,0 +1,41 @@
+/* 输入框 */
+.tab {
+	height: 50px;
+	width: 1150px;
+	text-align: center;
+	
+	
+}
+.tab td{
+	vertical-align: middle;
+    text-align: center;
+}
+.td_number {
+	width: 40px;
+	height: 20px;
+	
+}
+
+.td_area {
+	width: 100px;
+}
+
+.td_userDate {
+	width: 80px;
+}
+
+.td_userTime {
+	width: 80px;
+}
+
+.td_dapartment {
+	width: 150px;
+}
+
+td_purpose {
+	width: 280px;
+}
+
+.td_operation {
+	width: 240px;
+}
